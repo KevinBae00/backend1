@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package com.algoda.exam.controller;
 
 import com.algoda.voc.model.Myvocdao;
@@ -23,116 +18,110 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@WebServlet({"/exam.do"})
+@WebServlet("/exam.do")
 public class Examcontroller extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     public Examcontroller() {
     }
 
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        //int level = Integer.parseInt(req.getParameter("level"));
+//        int day = Integer.parseInt(req.getParameter("day"));
         HttpSession session = req.getSession();
-        String method = req.getParameter("method");
-        if (method != null) {
-            int[] randomnumber = new int[10];
+        String examtype = (String) session.getAttribute("examType");
+
+        if (examtype.equals("myvoc")) {
+            int randomnumber[] = new int[10];
             Random random = new Random();
-            List<Myvocdto> myvocdtoList = new ArrayList();
+            List<Myvocdto> myvocdtoList = new ArrayList<Myvocdto>();
             Myvocdao myvocdao = new Myvocdao();
+
             List<Myvocdto> wordList = myvocdao.selectExamList();
 
-            int i;
-            for (i = 0; i < 10; ++i) {
+            for (int i = 0; i < 10; i++) {
                 randomnumber[i] = random.nextInt(wordList.size());
-
-                for (int j = 0; j < i; ++j) {
-                    if (randomnumber[i] == randomnumber[j]) {
-                        --i;
-                    }
+                for (int j = 0; j < i; j++) {
+                    if (randomnumber[i] == randomnumber[j]) i--;
                 }
             }
-
-            for (i = 0; i < 10; ++i) {
-                myvocdtoList.add((Myvocdto) wordList.get(randomnumber[i]));
+            for (int i = 0; i < 10; i++) {
+                myvocdtoList.add(wordList.get(randomnumber[i]));
             }
 
             session.setAttribute("examLists", myvocdtoList);
-            session.setAttribute("examType", "myvoc");
+
+
             req.setAttribute("method", "vol");
             req.getRequestDispatcher("/exam/Exam.jsp").forward(req, resp);
         } else {
-            int level = (Integer) session.getAttribute("wordLevelQuiz");
-            int day = (Integer) session.getAttribute("wordDayQuiz");
-            int[] randomnumber = new int[10];
+            int level = (int) session.getAttribute("wordLevelQuiz");
+            int day = (int) session.getAttribute("wordDayQuiz");
+            int randomnumber[] = new int[10];
             Random random = new Random();
-            List<Worddto> worddtoList = new ArrayList();
+            List<Worddto> worddtoList = new ArrayList<Worddto>();
             Worddto worddto = new Worddto();
             worddto.setDay(day);
-            List wordCList;
             if (level == 1) {
                 Wordadao wordadao = new Wordadao();
-                wordCList = wordadao.getWordList(worddto);
-                this.randomQ(randomnumber, random, worddtoList, wordCList);
+
+                List<Worddto> wordAList = wordadao.getWordList(worddto);
+                randomQ(randomnumber, random, worddtoList, wordAList);
             } else if (level == 2) {
                 Wordbdao wordbdao = new Wordbdao();
-                wordCList = wordbdao.getWordList(worddto);
-                this.randomQ(randomnumber, random, worddtoList, wordCList);
+
+                List<Worddto> wordBList = wordbdao.getWordList(worddto);
+                randomQ(randomnumber, random, worddtoList, wordBList);
             } else if (level == 3) {
                 Wordcdao wordcdao = new Wordcdao();
-                wordCList = wordcdao.getWordList(worddto);
-                this.randomQ(randomnumber, random, worddtoList, wordCList);
-            }
 
+                List<Worddto> wordCList = wordcdao.getWordList(worddto);
+                randomQ(randomnumber, random, worddtoList, wordCList);
+            }
             session.setAttribute("level", level);
             session.setAttribute("examLists", worddtoList);
-            session.setAttribute("examType", "words");
+
             req.getRequestDispatcher("/exam/Exam.jsp").forward(req, resp);
         }
-
     }
 
     private void randomQ(int[] randomnumber, Random random, List<Worddto> worddtoList, List<Worddto> wordList) {
-        int i;
-        for (i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; i++) {
             randomnumber[i] = random.nextInt(wordList.size());
-
-            for (int j = 0; j < i; ++j) {
-                if (randomnumber[i] == randomnumber[j]) {
-                    --i;
-                }
+            for (int j = 0; j < i; j++) {
+                if (randomnumber[i] == randomnumber[j]) i--;
             }
         }
-
-        for (i = 0; i < 10; ++i) {
-            worddtoList.add((Worddto) wordList.get(randomnumber[i]));
+        for (int i = 0; i < 10; i++) {
+            worddtoList.add(wordList.get(randomnumber[i]));
         }
-
     }
 
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        int[] randomnumber = new int[10];
+        int randomnumber[] = new int[10];
         Random random = new Random();
-        List<Myvocdto> myvocdtoList = new ArrayList();
+        List<Myvocdto> myvocdtoList = new ArrayList<Myvocdto>();
         Myvocdao myvocdao = new Myvocdao();
+
         List<Myvocdto> wordList = myvocdao.selectExamList();
 
-        int i;
-        for (i = 0; i < 10; ++i) {
+        for (int i = 0; i < 10; i++) {
             randomnumber[i] = random.nextInt(wordList.size());
-
-            for (int j = 0; j < i; ++j) {
-                if (randomnumber[i] == randomnumber[j]) {
-                    --i;
-                }
+            for (int j = 0; j < i; j++) {
+                if (randomnumber[i] == randomnumber[j]) i--;
             }
         }
-
-        for (i = 0; i < 10; ++i) {
-            myvocdtoList.add((Myvocdto) wordList.get(randomnumber[i]));
+        for (int i = 0; i < 10; i++) {
+            myvocdtoList.add(wordList.get(randomnumber[i]));
         }
 
         session.setAttribute("examLists", myvocdtoList);
+
         session.setAttribute("examType", "myvoc");
+
         req.getRequestDispatcher("/exam/Exam.jsp").forward(req, resp);
     }
 }

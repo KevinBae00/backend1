@@ -25,6 +25,7 @@ public class Addcontroller extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         Worddto worddto = new Worddto();
         worddto.setWord(req.getParameter("word"));
         worddto.setDay(Integer.parseInt(req.getParameter("day")));

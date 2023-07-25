@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resource auth="Container"
+              driverClassName="oracle.jdbc.OracleDriver"
+              type="javax.sql.DataSource"
+              initialSize="0"
+              minIdle="5"
+              maxTotal="20"
+              maxIdle="20"
+              maxWaitMillis="5000"
+              url="jdbc:oracle:thin:@ptax15g6ez0tr2te_low?TNS_ADMIN=D://wallet//Wallet_PTAX15G6EZ0TR2TE"
+              name="dbcp_myoracle"
+              username="admin"
+              password="JaewonChung73"/>
+</Context>

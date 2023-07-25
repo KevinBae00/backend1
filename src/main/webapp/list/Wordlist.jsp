@@ -21,9 +21,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
-
-
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -282,18 +279,18 @@
 
     <div style="width: 230px;" class="input-field col s2" id="day_mark"><label for="DAY"> DAY </label></div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-     <script>
-   
-     	
-     	
-     	document.addEventListener("DOMContentLoaded", function() {
-    	    // 기본값으로 선택할 옵션의 인덱스를 지정합니다. (0부터 시작)
-    	    var defaultOptionIndex = "<%=session.getAttribute("wordDay")%>" -1;
-    	    var selectElement = document.getElementByName("levelSelect");
-    	    selectElement.selectedIndex = defaultOptionIndex;
-    	  });
-	</script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // 기본값으로 선택할 옵션의 인덱스를 지정합니다. (0부터 시작)
+            var defaultOptionIndex = "<%=session.getAttribute("wordDay")%>" - 1;
+            var selectElement = document.getElementByName("levelSelect");
+            selectElement.selectedIndex = defaultOptionIndex;
+        });
+    </script>
 
     <!-- <div style="min-width: 50px;" class="input-field col s1 " id="day_num">
  
@@ -306,19 +303,27 @@
         </select>
     </div> -->
 
-	<div style="margin-top: 3px">
-       <a href="../controller/word.do?wordLevel=1&wordDay=${sessionScope.wordDay}&pagenum=1" class="btn btn-info btn-sm origncolor">중등 영단어</a>
-       <a href="../controller/word.do?wordLevel=2&wordDay=${sessionScope.wordDay}&pagenum=1" class="btn btn-info btn-sm origncolor">수능 영단어</a>
-       <a href="../controller/word.do?wordLevel=3&wordDay=${sessionScope.wordDay}&pagenum=1" class="btn btn-info btn-sm origncolor">직장인 영단어</a>
-   </div>
+    <div style="margin-top: 3px">
+        <a href="../controller/word.do?wordLevel=1&wordDay=${sessionScope.wordDay}&pagenum=1"
+           class="btn btn-info btn-sm origncolor">중등 영단어</a>
+        <a href="../controller/word.do?wordLevel=2&wordDay=${sessionScope.wordDay}&pagenum=1"
+           class="btn btn-info btn-sm origncolor">수능 영단어</a>
+        <a href="../controller/word.do?wordLevel=3&wordDay=${sessionScope.wordDay}&pagenum=1"
+           class="btn btn-info btn-sm origncolor">직장인 영단어</a>
+    </div>
 
-	<div style="margin-top: 3px">
-       <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=1&pagenum=1" class="btn btn-info btn-sm origncolor">DAY1</a>
-       <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=2&pagenum=1" class="btn btn-info btn-sm origncolor">DAY2</a>
-       <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=3&pagenum=1" class="btn btn-info btn-sm origncolor">DAY3</a>
-       <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=4&pagenum=1" class="btn btn-info btn-sm origncolor">DAY4</a>
-       <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=5&pagenum=1" class="btn btn-info btn-sm origncolor">DAY5</a>
-   </div>
+    <div style="margin-top: 3px">
+        <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=1&pagenum=1"
+           class="btn btn-info btn-sm origncolor">DAY1</a>
+        <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=2&pagenum=1"
+           class="btn btn-info btn-sm origncolor">DAY2</a>
+        <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=3&pagenum=1"
+           class="btn btn-info btn-sm origncolor">DAY3</a>
+        <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=4&pagenum=1"
+           class="btn btn-info btn-sm origncolor">DAY4</a>
+        <a href="../controller/word.do?wordLevel=${sessionScope.wordLevel}&wordDay=5&pagenum=1"
+           class="btn btn-info btn-sm origncolor">DAY5</a>
+    </div>
 
 
     <h2 style="font-size:40px">${section}</h2>
@@ -340,52 +345,56 @@
                     </tr>
                     </thead>
 
-				<div id="boardListsContainer">
+                    <div id="boardListsContainer">
 
-                    <c:choose>
-                        <c:when test="${empty boardLists }">
-                            <tr>
-                                <td colspan="6" align="center">
-                                    등록된 게시물이 없습니다
-                                </td>
-                            </tr>
-                        </c:when>
-
-                        <c:otherwise>
-                            <c:forEach items="${boardLists }" var="row" varStatus="loop">
+                        <c:choose>
+                            <c:when test="${empty boardLists }">
                                 <tr>
-                                    <td>
-                                            ${  (((map.pageNum-1) * map.pageSize) + loop.index) + 1}
-                                    </td>
-                                    <td>${ row.word }</td>
-                                    <td>${ row.meaninga },${ row.meaningb },${ row.meaningc }</td>
-                                    <td>${ row.similar_worda },${ row.similar_wordb },${ row.similar_wordc }</td>
-
-                                    <td>
-                                        <!-- <button type="button" class="btn btn-dark"
-                                                style="background-color:#53eba6; border:none" ">발음 듣기
-                                        </button> -->
-                                        
-                                        <a href="amount.mp3" target="_blank">발음 듣기</a>
-                                    </td>
-                                    <td>
-                                        <link rel="stylesheet"
-                                              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-                                        <div class="container">
-                                            <div class="row">
-                                                <button type="button" class="btn bg-blue  fs-it-btn"
-                                                        onclick="location.href='../controller/word.do?word=${ row.word }'">
-                                                    <i class="fa fa-plus" aria-hidden="true"></i>
-                                                    <span class="fs-it-btn-vertical-line"></span>
-                                                    단어장 추가
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <td colspan="6" align="center">
+                                        등록된 게시물이 없습니다
                                     </td>
                                 </tr>
-                            </c:forEach>
-                        </c:otherwise>
-                   </c:choose>
+                            </c:when>
+
+                            <c:otherwise>
+                                <c:forEach items="${boardLists }" var="row" varStatus="loop">
+                                    <tr>
+                                        <td>
+                                                ${  (((map.pageNum-1) * map.pageSize) + loop.index) + 1}
+                                        </td>
+                                        <td>${ row.word }</td>
+                                        <td>${ row.meaninga },${ row.meaningb },${ row.meaningc }</td>
+                                        <td>${ row.similar_worda },${ row.similar_wordb },${ row.similar_wordc }</td>
+
+                                        <td>
+                                            <!-- <button type="button" class="btn btn-dark"
+                                                    style="background-color:#53eba6; border:none" ">발음 듣기
+                                            </button> -->
+
+                                            <button class="btn btn-primary"
+                                                    onclick='window.open("../audio/${ row.word }.mp3", "popup",
+                                                            "width = 300, height = 70, top = 100, left = 200, location = no");'>
+                                                발음 듣기
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <link rel="stylesheet"
+                                                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <button type="button" class="btn bg-blue  fs-it-btn"
+                                                            onclick="location.href='../controller/word.do?word=${ row.word }'">
+                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                        <span class="fs-it-btn-vertical-line"></span>
+                                                        단어장 추가
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                     <tbody>
 
@@ -435,7 +444,6 @@
 
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
 
 </body>
 </html>

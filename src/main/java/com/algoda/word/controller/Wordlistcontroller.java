@@ -36,7 +36,10 @@ public class Wordlistcontroller extends HttpServlet {
             session.setAttribute("wordLevel", wordLevel);
             session.setAttribute("wordLevelQuiz", level);
         } else {
+            int level = Integer.parseInt(wordLevel);
+            session.setAttribute("wordLevelQuiz", level);
             wordLevel = (String) session.getAttribute("wordLevel");
+
         }
 
         String pageTemp = request.getParameter("pageNum");
@@ -48,6 +51,7 @@ public class Wordlistcontroller extends HttpServlet {
             session.setAttribute("wordDayQuiz", day);
         } else {
             wordDay = (String) session.getAttribute("wordDay");
+            session.setAttribute("wordDayQuiz", 1);
             System.out.println(wordDay);
         }
 

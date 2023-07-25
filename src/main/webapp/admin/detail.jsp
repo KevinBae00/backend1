@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Checkout example · Bootstrap v5.2</title>
+    <title>Checkout example ?? Bootstrap v5.2</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -92,7 +92,7 @@
         function wordcheck() {
             var word = document.getElementById("word").value;
 
-            // window.open("open할 window", "자식창 이름", "팝업창 옵션");
+            // window.open("open?? window", "???? ???", "???? ???");
             openWin = window.open("../wordcheck.do?word=" + word, "childForm", "width=570, height=350, resizable = no, scrollbars = no");
             openWin.document.getElementById("cInput").value = document.getElementById("word").value;
         }
@@ -105,24 +105,24 @@
 <main>
     <div class="py-5 text-center">
 
-        <h2>영단어 관리(관리자)</h2>
+        <h2>????? ????(??????)</h2>
 
     </div>
 
     <!-- <div class="row g-5"> -->
 
     </div>
-
+    <%request.setCharacterEncoding("UTF-8");%>
 
     <div class="container row" style="float: none; margin: 100 auto; margin-left:150px "></div>
     <div class="col-md-8" style="float: none; margin: 0 auto;">
         <h5></h5>
         <c:choose>
         <c:when test="${mode == 'edit'}">
-        <form class="needs-validation" method="post" action="edit.do">
+        <form class="needs-validation" method="post" action="edit.do" accept-charset="utf-8">
             </c:when>
             <c:otherwise>
-            <form class="needs-validation" method="post" action="../add.do">
+            <form class="needs-validation" method="post" action="../add.do" accept-charset="utf-8">
                 </c:otherwise>
                 </c:choose>
                 <div class="row g-3">
@@ -131,7 +131,7 @@
                     <c:choose>
                         <c:when test="${mode == 'edit'}">
                             <div class="col-sm-12">
-                                <label for="word" class="form-label">word(단어)</label>
+                                <label for="word" class="form-label">word(???)</label>
                                 <div class="word">
                                     <h3>${pagedto.word}</h3>
                                 </div>
@@ -147,12 +147,12 @@
                         </c:when>
                         <c:otherwise>
                             <div class="col-sm-12">
-                                <label for="word" class="form-label">word(단어)</label>
+                                <label for="word" class="form-label">word(???)</label>
                                 <div class="word">
                                     <input type="text" class="form-control" id="word" name="word" required>
                                     <button class="btn btn-secondary" type="button" name="wordbtn" id="wordbtn"
                                             onclick="wordcheck()">
-                                        중복확인
+                                        ??????
                                     </button>
                                 </div>
                             </div>
@@ -161,9 +161,9 @@
                                 <label class="form-label">level</label>
                                 <div>
                                     <select id="level" name="level" style="width: 10em">
-                                        <option value="1">중등 영단어</option>
-                                        <option value="2">수능 영단어</option>
-                                        <option value="3">직장인 영단어</option>
+                                        <option value="1">??? ?????</option>
+                                        <option value="2">???? ?????</option>
+                                        <option value="3">?????? ?????</option>
                                     </select>
                                 </div>
 
@@ -176,21 +176,21 @@
                     <div class="col-sm-6">
                         <label for="day" class="form-label">day</label>
                         <input type="text" class="form-control" id="day" name="day" value="${pagedto.day}"
-                               placeholder="숫자만 써주세요" required>
+                               placeholder="????? ???????" required>
 
                     </div>
 
 
                     <br><br>
                     <div class="col-sm-12">
-                        <label for="mean1" class="form-label">meaning1(뜻)</label>
+                        <label for="mean1" class="form-label">meaning1(??)</label>
                         <input type="text" class="form-control" id="mean1" name="mean1"
                                value="${pagedto.meaninga}" required>
 
                     </div>
 
                     <div class="col-sm-12">
-                        <label for="mean2" class="form-label">meaning2(뜻)</label>
+                        <label for="mean2" class="form-label">meaning2(??)</label>
                         <div class="input-group has-validation">
 
                             <input type="text" class="form-control" id="mean2" name="mean2"
@@ -202,13 +202,13 @@
                     </div>
 
                     <div class="col-sm-12">
-                        <label for="mean3" class="form-label">meaning3(뜻)</label>
+                        <label for="mean3" class="form-label">meaning3(??)</label>
                         <input type="text" class="form-control" id="mean3" name="mean3" value="${pagedto.meaningc}">
 
                     </div>
 
                     <div class="col-sm-12">
-                        <label for="synonym1" class="form-label">synonym(동의어1)</label>
+                        <label for="synonym1" class="form-label">synonym(?????1)</label>
                         <input type="text" class="form-control" id="synonym1" name="synonym1"
                                value="${pagedto.similar_worda}">
 
@@ -216,14 +216,14 @@
 
                     <br><br>
                     <div class="col-sm-12 flex-wrap">
-                        <label for="synonym2" class="form-label">synonym(동의어2) </label>
+                        <label for="synonym2" class="form-label">synonym(?????2) </label>
                         <input type="text" class="form-control" id="synonym2" name="synonym2"
                                value="${pagedto.similar_wordb}">
                     </div>
 
                     <br><br>
                     <div class="col-sm-12">
-                        <label for="synonym3" class="form-label">synonym(동의어3) </label>
+                        <label for="synonym3" class="form-label">synonym(?????3) </label>
                         <input type="text" class="form-control" id="synonym3" name="synonym3"
                                value="${pagedto.similar_wordc}">
                     </div>
@@ -233,14 +233,14 @@
                         <button class="col-sm-3 btn btn-success btn-lg" type="submit">
                             <c:choose>
                                 <c:when test="${mode == 'edit'}">
-                                    수정하기
+                                    ???????
                                 </c:when>
                                 <c:otherwise>
-                                    추가하기
+                                    ??????
                                 </c:otherwise>
                             </c:choose>
                         </button>&nbsp;&nbsp;
-                        <button class="col-sm-3 btn btn-success btn-lg" onclick="history.back();">뒤로</button>
+                        <button class="col-sm-3 btn btn-success btn-lg" onclick="history.back();">???</button>
                     </div>
                 </div>
             </form>

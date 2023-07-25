@@ -25,6 +25,7 @@ public class Editcontroller extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         int level = Integer.parseInt(req.getParameter("level"));
         String word = req.getParameter("word");
         Worddto worddto = new Worddto();
@@ -40,7 +41,6 @@ public class Editcontroller extends HttpServlet {
             Wordcdao wordadao = new Wordcdao();
             pagedto = wordadao.getWord(worddto);
         }
-
         String mode = "edit";
         req.setAttribute("mode", mode);
         req.setAttribute("adminlevel", level);
@@ -49,6 +49,8 @@ public class Editcontroller extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        System.out.println("mean1: " + req.getParameter("mean1"));
         Worddto worddto = new Worddto();
         worddto.setWord(req.getParameter("word"));
         worddto.setDay(Integer.parseInt(req.getParameter("day")));

@@ -100,15 +100,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../rank.do?level=1" style="color: mediumpurple">랭킹 보기</a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="../boardlist.do" style="color: mediumpurple">건의 사항</a>
                     </li>
                 </ul>
 
                 <div style="margin-right: 1rem;"><strong>${username}님 환영합니다.</strong></div>
-                <button type="button" class="btn btn-outline-primary" 
-                	onclick="location.href='../Logout.do'"><strong>로그아웃</strong></button>
+                <button type="button" class="btn btn-outline-primary"
+                        onclick="location.href='../Logout.do'"><strong>로그아웃</strong></button>
             </div>
         </div>
     </nav>
@@ -127,7 +127,8 @@
             <div class="carousel-item active">
                 <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
                      aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#BDFCC9" class="image"/>
+                    <image width="100%"
+                           href="https://jae73wonbuck.s3.ap-northeast-2.amazonaws.com/images/back3.jpg"></image>
                 </svg>
 
                 <div class="container ">
@@ -143,7 +144,8 @@
             <div class="carousel-item">
                 <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
                      aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#BDFCC9"/>
+                    <image width="100%"
+                           href="https://jae73wonbuck.s3.ap-northeast-2.amazonaws.com/images/back3.jpg"></image>
                 </svg>
 
                 <div class="container">
@@ -159,7 +161,8 @@
             <div class="carousel-item">
                 <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
                      aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#BDFCC9"/>
+                    <image width="100%"
+                           href="https://jae73wonbuck.s3.ap-northeast-2.amazonaws.com/images/back3.jpg"></image>
                 </svg>
 
                 <div class="container">

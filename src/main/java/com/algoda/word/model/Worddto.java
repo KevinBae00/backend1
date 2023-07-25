@@ -81,4 +81,18 @@ public class Worddto {
     public void setDay(int day) {
         this.day = day;
     }
+
+    @Override
+    public String toString() {
+        return "Worddto{" +
+                "word='" + word + '\'' +
+                ", meaninga='" + meaninga + '\'' +
+                ", meaningb='" + meaningb + '\'' +
+                ", meaningc='" + meaningc + '\'' +
+                ", similar_worda='" + similar_worda + '\'' +
+                ", similar_wordb='" + similar_wordb + '\'' +
+                ", similar_wordc='" + similar_wordc + '\'' +
+                ", day=" + day +
+                '}';
+    }
 }

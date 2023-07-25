@@ -43,7 +43,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div style="margin-right: 1rem;"><strong>관리자님 환영합니다.</strong></div>
-                <button type="button" class="btn btn-outline-primary"><strong>로그아웃</strong></button>
+                <button type="button" class="btn btn-outline-primary"
+                        onclick="location.href='./Logout.do'"><strong>로그 아웃</strong></button>
             </div>
         </div>
     </nav>

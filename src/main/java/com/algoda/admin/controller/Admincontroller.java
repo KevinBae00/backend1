@@ -27,6 +27,7 @@ public class Admincontroller extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         HttpSession session = req.getSession();
         List<Worddto> worddtoList = null;
         String section = "미정";
